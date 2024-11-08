@@ -1,0 +1,74 @@
+/** app.css 11/10/24 **/
+@import "$lib/styles/reset.css";
+@import "$lib/styles/forms.css";
+/* @import "$lib/styles/vsdark.css"; */
+
+:root {
+  /* color-scheme: dark; */
+  --header-height: 4rem;
+  --sidebar-width: 100%;
+  --max-width: 960px;
+}
+
+/* #region LAYOUT  */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+}
+header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--bg-header);
+  border-bottom: var(--border);
+  z-index: 100;
+
+  .flex {
+    display: flex;
+    align-items: center;
+    gap: 0 1rem;
+    height: 100%;
+    padding: 0.5rem 2rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+  .title { flex: 1; }
+  & nav {
+    display: flex;
+    align-items: baseline;
+    gap: 0 1rem;
+  }
+}
+
+main {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  height: calc(100% - var(--header-height));
+  width: 100%;
+  overflow-y: auto;
+
+  .router {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    width: 100%;
+  }
+  .page {
+    padding: 1rem 2rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+}
+/* #endregion LAYOUT  */
+
+.mt-05 { margin-top: 0.5rem; }
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mt-3 { margin-top: 3rem; }
+.m-05 { margin: 0.5rem; }
+.m-1 { margin: 1rem 0; }
+.m-2 { margin: 2rem 0; }
+.m-3 { margin: 3rem 0; }
