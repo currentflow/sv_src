@@ -1,9 +1,9 @@
-/* #region reset 10/14/24 */
+/* #region reset 11/10/24 */
 :root {
   /* color-scheme: dark; */
   /* color-scheme: light; */
   --font-size: 16px;
-  --line-height: 1.5;
+  --line-height: 1.5; 
 
   --fg: light-dark(hsl(0 0 27), hsl(0 0 70)) ;
   --fg-heading: light-dark(hsl(0 0 13),hsl(0 0 80));
@@ -27,7 +27,7 @@
   --block-margin: 0 0 1em 0;
   --small-block-margin: 0 0 0.5em 0;
 
-  --sans-serif: "Open Sans Variable", system-ui, sans-serif;
+  --sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif;
   --serif: ui-serif, serif;
   --monospace: ui-monospace, monospace, monospace;
   --duration: 150ms;
@@ -73,7 +73,7 @@
 :where(h1, h2, h3) { text-wrap: balance; }
 :where(h1, .h1) {
   font-size: calc(1rem + 8px);
-  margin: var(--block-margin);
+  /* margin: var(--block-margin); */
 }
 :where(h2, .h2) { font-size: calc(1rem + 4px); }
 :where(h3, .h3) { font-size: calc(1rem + 2px); }
@@ -95,11 +95,11 @@
   line-height: 1;
 }
 :where(h1, .h1, h3, .h3) { line-height: 0 0 1.333em; }
-:where(h2, h3, h4) { margin: 0 0 0.25em; }
+:where(h1, h2, h3, h4) { margin: 0 0 0.25em; }
 :where(h5, .h5, h6, .h6) { margin: 0; }
 :where(p) {
   margin: var(--block-margin);
-  max-width: 100%;
+  max-width: 60ch
 }
 :where(ul, ol) {
   margin: var(--block-margin);
@@ -117,7 +117,8 @@
 :where(ul ul ul ul) { list-style-type: "◦ "; }
 :where(nav) :where(ol, ul) { list-style-type: none; }
 :where(pre) {
-  margin: var(--block-margin);
+  margin: unset;
+  /* margin: var(--block-margin); */
   white-space: pre-wrap;
   overflow: auto;
 }

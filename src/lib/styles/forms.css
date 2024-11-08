@@ -1,10 +1,10 @@
-/* #region forms 10/14/24 */
+/* #region forms 11/10/24 */
 :root {
   --x: 1.5; /* button height multiplier */
   --width-number: 6em;
-
-  --bg-textbox: light-dark(hsl(206 48 98), hsl(0 0 14));
+  
   --bg-button: light-dark(hsl(206 48 98), hsl(0 0 14));
+  --bg-textbox: var(--bg-button);
 
   --button-height: calc((1em + 2px) * var(--x));
   --border-width-button: 0.0625em;
@@ -30,9 +30,9 @@ select, textarea, button, a.button {
   text-transform: none;
   font-size: calc(1em - 2px);
   height: var(--button-height);
-  line-height: calc(var(--button-height) - 2px);
+  line-height: 1.5; /* affects button only */
   max-width: 100%;
-  padding: 0 0.5rem 0;
+  padding: 0 0.5rem ;
   margin: 0;
   border: var(--border-button);
   border-radius: var(--border-radius-button);
@@ -62,16 +62,17 @@ button, select, a.button, [type="button"],
 select {
   min-width: 8em;
   width: max-content;
+  background-color: var(--bg-button);
+  padding-bottom: 0.0625em;
+  option { background-color: var(--bg); }
 }
-select, select > option {
-  color: inherit;
-}
+select, select > option { color: inherit; }
 select[multiple] {
   padding: 0;
   height: fit-content;
   box-shadow: unset;
   & option { padding: 0.1875em 0.5em; }
-  & option:checked { background-color: hsla(0,0%,50%,0.1); }
+  & option:checked { background-color: hsl(0 0 50 / 0.1); }
 }
 a.button {
   display: inline-block;
@@ -99,22 +100,22 @@ button.unset {
   text-align: unset;
   box-shadow: unset;
 }
-[type="image"] {
-  vertical-align:  var(--vertical-align) !important;
-}
+[type="image"] { vertical-align:  var(--vertical-align) !important; }
 /* #endregion button */
 
 /* #region textbox */
-[type="text"],[type="number"],[type="search"],
-[type="email"],[type="password"],
-[type="tel"], [type="url"],
-[type="datetime-local"],[type="date"],
-[type="week"],[type="month"],[type="time"] {
+input[type="text"],input[type="number"],input[type="search"],
+input[type="email"],input[type="password"],
+input[type="tel"], input[type="url"],input[type="button"],
+input[type="datetime-local"],input[type="date"],
+input[type="week"],input[type="month"],input[type="time"] {
   background-color: var(--bg-textbox);
+  /* padding-bottom: 0.0625em; */
+  padding-bottom: 0.125em;  
+  
   &:focus {
     outline: var(--outline);
     border-color: var(--outline-color);
-    padding-bottom: 0.0625em;
   }
 }
 input[type="number"] {
@@ -124,7 +125,7 @@ input[type="number"] {
   padding-right: 0;
 }
 textarea {
-  line-height: 1.5;
+  line-height: var(--x);
   height: 5em;
   background-color: var(--bg-textbox);
   vertical-align: var(--vertical-align);
@@ -145,7 +146,6 @@ label:has([type="checkbox"], [type="radio"]) {
 
 [type="checkbox"], [type="radio"] {
   --cb-size: 1em;
-  --vertical-align: top;
   appearance: unset;
   position: relative;
   display: inline-grid;
@@ -163,6 +163,7 @@ label:has([type="checkbox"], [type="radio"]) {
 
   &::before, &::after {
     position: absolute;
+    top: 0.25em;
     box-sizing: border-box;
     content: "";
     height:var(--cb-size);
@@ -170,13 +171,7 @@ label:has([type="checkbox"], [type="radio"]) {
   }
   &::after { scale: 0; }
   &:checked::after { scale: 1; }
-  &::before {
-    --border-color-button: 
-      light-dark(hsl(207 20 60), hsl(0 0 45));
-    --border-color-button-hover: 
-      light-dark(hsl(207 20 30), hsl(0 0 60));
-    --border-radius-button: 0.25em;
-    
+  &::before {    
     background-color: var(--bg-button);      
     border-width: var(--border-width-button);
     border-style: var(--border-style-button);
