@@ -1,0 +1,1 @@
+import{a as e,t as p}from"../chunks/disclose-version.a37bFkla.js";import{s as r}from"../chunks/class.s59QSQOQ.js";var s=p("<h2></h2>");function i(o){let a="About";var t=s();r(t,""),t.textContent=a,e(o,t)}export{i as component};
