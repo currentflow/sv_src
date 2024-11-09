@@ -1,4 +1,5 @@
 <script>
+  import { base } from '$app/paths';
   import { fade } from "svelte/transition";
   import "./app.css";
   const routes = [
@@ -19,7 +20,7 @@
     <nav>
       {#each routes as route}
       <div class="route">
-        <a href={route.path}>{route.name}</a>
+        <a href="{base}{route.path}">{route.name}</a>
       </div>
       {/each}
     </nav>
