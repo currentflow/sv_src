@@ -13,7 +13,7 @@
 <header class="">
   <div class="flex">
     <div class="title">
-      <a href="/">
+      <a href="{base}/">
         <h1 style:margin=0>{title}</h1>
       </a>
     </div>
